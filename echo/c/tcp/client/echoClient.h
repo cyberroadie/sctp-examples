@@ -9,7 +9,6 @@ struct settings {
     int no_of_threads;
     int bufsize;
     bool verbose;
-    bool sctp;
 };
 
 struct audit {
