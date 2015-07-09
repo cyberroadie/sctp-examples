@@ -1,7 +1,7 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT("echo server")
 
-SET(CMAKE_C_FLAGS "-g -std=c99 -pthread -Wall")
+SET(CMAKE_C_FLAGS "-g -std=c99 -pthread -Wall -isystem")
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 ADD_EXECUTABLE(echoSCTPServerRecvmsg echoServer.c)

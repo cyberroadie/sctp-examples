@@ -134,6 +134,7 @@ void *messageSender(void *arg) {
       printf("received: %s\n", buf);
     }
   }
+  return 0;
 }
 
 static void settings_init(void) {
