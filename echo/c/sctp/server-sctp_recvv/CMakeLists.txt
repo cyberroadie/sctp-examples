@@ -1,11 +1,11 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.2)
-PROJECT("echo server")
+cmake_minimum_required(VERSION 3.2)
+project("echo server")
 
-SET(CMAKE_C_FLAGS "-std=c99 -Wall")
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+set(CMAKE_C_FLAGS "-std=c99 -Wall")
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
-ADD_EXECUTABLE(echoServer echoServer.c)
+add_executable(echoServerSCTP echoServer.c)
 
-IF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-  TARGET_LINK_LIBRARIES(echoServer /usr/lib/libsctp.dylib)
-ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
+  target_link_libraries(echoServerSCTP /usr/lib/libsctp.dylib)
+endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")

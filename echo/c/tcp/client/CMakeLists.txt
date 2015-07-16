@@ -1,10 +1,11 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT("echo client")
+cmake_minimum_required(VERSION 2.8)
+project("echo client")
 
-INCLUDE_DIRECTORIES(SYSTEM "/usr/include")
+include_directories(SYSTEM "/usr/include")
+
 set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")
 
-SET(CMAKE_C_FLAGS "-std=c99 -Wall ")
-SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin) 
+set(CMAKE_C_FLAGS "-std=c99 -Wall ")
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
-ADD_EXECUTABLE(echoClient echoClient.c)
+add_executable(echoClient echoClient.c)
