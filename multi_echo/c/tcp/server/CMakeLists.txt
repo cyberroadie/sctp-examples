@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT("echo server")
+PROJECT("multi_echo server")
 
 INCLUDE_DIRECTORIES(SYSTEM "/usr/include")
 set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")

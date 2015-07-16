@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project("echo client")
+project("multi_echo client")
 
 include_directories(SYSTEM "/usr/include")
 

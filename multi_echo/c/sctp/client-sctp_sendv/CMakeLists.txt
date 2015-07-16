@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project("echo client")
+project("multi_echo client")
 
 set(CMAKE_C_FLAGS "-std=c99 -Wall")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)

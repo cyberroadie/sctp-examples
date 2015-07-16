@@ -9,14 +9,14 @@ The reference implementation of SCTP is on FreeBSD, so all programs are guarente
 The reference implementation gets ported frequently to the latest version of Mac OS X: [install instructions](https://nplab.fh-muenster.de/wiki/pages/27J6w9D2/SCTP_on_Yosemite.html). All programs should also work on this OS.
 
 ### Linux
-No guarenteed support. [SCTP Linux driver developement](https://github.com/borkmann/lksctp-tools)
+No guaranteed support. [SCTP Linux driver developement](https://github.com/borkmann/lksctp-tools)
 
 ### Microsoft Windows
-No guarenteed support. [SCTP Windows driver development](http://www.bluestop.org/SctpDrv/)
+No guaranteed support. [SCTP Windows driver development](http://www.bluestop.org/SctpDrv/)
 
 ## Example programs
 
-### Echo: Client - Server
+### Simple Echo: Client - Server
 1. Clients send a single message 
 2. Server echos message back
 3. Client prints message
@@ -29,7 +29,7 @@ Multi threaded client, keeps sending messages to server
 Uploading a file.
 
 ### Multi File Upload: Client - Server
-Uplaoding multiple files over multiple channels.
+Uploading multiple files over multiple channels.
 
 ### Binary protocol: Client - Server
 Simple binary protocol
