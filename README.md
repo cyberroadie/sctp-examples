@@ -6,7 +6,9 @@
 The reference implementation of SCTP is on FreeBSD, so all programs are guarenteed to work on this OS.
 
 ### OS X
-The reference implementation gets ported frequently to the latest version of Mac OS X: [install instructions](https://nplab.fh-muenster.de/wiki/pages/27J6w9D2/SCTP_on_Yosemite.html). All programs should also work on this OS.
+The reference implementation gets ported frequently to the latest version of Mac OS X: 
+[install instructions](https://nplab.fh-muenster.de/wiki/pages/27J6w9D2/SCTP_on_Yosemite.html). 
+All programs should also work on this OS.
 
 ### Linux
 No guaranteed support. [SCTP Linux driver developement](https://github.com/borkmann/lksctp-tools)
@@ -15,6 +17,7 @@ No guaranteed support. [SCTP Linux driver developement](https://github.com/borkm
 No guaranteed support. [SCTP Windows driver development](http://www.bluestop.org/SctpDrv/)
 
 ## Example programs
+Every category also has a TCP implementation for comparison.
 
 ### Simple Echo: Client - Server
 1. Clients send a single message 
@@ -26,7 +29,7 @@ No guaranteed support. [SCTP Windows driver development](http://www.bluestop.org
 Multi threaded client, keeps sending messages to server
 
 ### File Upload: Client - Server
-Uploading a file.
+Uploading a PNG picture file. 
 
 ### Multi File Upload: Client - Server
 Uploading multiple files over multiple channels.
