@@ -17,7 +17,7 @@ No guaranteed support. [SCTP Linux driver developement](https://github.com/borkm
 No guaranteed support. [SCTP Windows driver development](http://www.bluestop.org/SctpDrv/)
 
 ## Example programs
-Every category also has a TCP implementation for comparison.
+Every category also has a TCP implementation for comparison. 
 
 ### Simple Echo: Client - Server
 1. Clients send a single message 
