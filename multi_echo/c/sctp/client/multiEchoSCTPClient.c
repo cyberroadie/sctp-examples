@@ -11,7 +11,7 @@
 #include <netinet/sctp_uio.h> 
 #include <pthread.h>
 #include <stdbool.h>
-#include "echoClient.h"
+#include "multiEchoSCTPClient.h"
 
 #define PPID 424242
 #define RECVBUFSIZE 2048

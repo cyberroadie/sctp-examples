@@ -9,8 +9,7 @@
 #include <netinet/tcp.h> /* TCP_NODELAY lives here */
 #include <pthread.h>
 #include <stdbool.h>
-#include "echoClient.h"
-#include "../common.h"
+#include "multiEchoTCPClient.h"
 
 struct settings settings;
 

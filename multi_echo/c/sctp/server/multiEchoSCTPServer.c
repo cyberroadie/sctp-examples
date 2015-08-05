@@ -7,7 +7,7 @@
 #include <netinet/sctp.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include "echoServer.h"
+#include "multiEchoSCTPServer.h"
 
 #define RECVBUFSIZE 2048
 #define SCTP_CONTROL_VEC_SIZE_RCV  16384 // lib/libc/net/sctp_sys_calls.c
