@@ -7,6 +7,6 @@ set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")
 set(CMAKE_C_FLAGS "-std=c99 -Wall")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
-add_executable(multiEchoTCPClientC client/multiEchoTCPClient.c)
-add_executable(multiEchoTCPServerC server/multiEchoTCPServer.c)
+add_executable(simpleEchoTCPClientC client/simpleEchoTCPClient.c)
+add_executable(simpleEchoTCPServerC server/simpleEchoTCPServer.c)
 
