@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <strings.h>
 #include <unistd.h>
+#include "myutil.h"
 #include "simpleEchoTCPServer.h"
 
 #define MSG_SIZE 6
@@ -10,7 +11,7 @@
 int main() {
 
     // create socket
-    int sd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
+    int sd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
     if(sd == -1) {
         perror("failed to create socket");
         exit(EXIT_FAILURE);
@@ -18,10 +19,8 @@ int main() {
 
     // server address and port to listen on (0.0.0.0) (4242)
     struct sockaddr_in serverAddress;
-    bzero((void *)&serverAddress, sizeof(serverAddress));
-    serverAddress.sin_family = AF_INET;
-    serverAddress.sin_addr.s_addr = htonl(INADDR_ANY);
-    serverAddress.sin_port = htons(4242);
+
+    setAddress(INADDR_ANY, "4242", &serverAddress, "tcp");
 
     // bind socket to address
     int rb = bind(sd, (struct sockaddr *)&serverAddress, sizeof(serverAddress));
