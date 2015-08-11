@@ -13,3 +13,4 @@ add_subdirectory(multi_echo/go/tcp)
 
 add_subdirectory(simple_echo/c/tcp)
 add_subdirectory(simple_echo/c/sctp)
+add_subdirectory(simple_echo/go/sctp)
