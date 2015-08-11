@@ -20,7 +20,7 @@ int main() {
     // server address and port to listen on (0.0.0.0) (4242)
     struct sockaddr_in serverAddress;
 
-    setAddress(INADDR_ANY, "4242", &serverAddress, "tcp");
+    createAddress(INADDR_ANY, "4242", &serverAddress, "tcp");
 
     // bind socket to address
     int rb = bind(sd, (struct sockaddr *)&serverAddress, sizeof(serverAddress));
