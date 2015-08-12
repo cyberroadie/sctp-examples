@@ -10,7 +10,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    struct sctp_initmsg *initmsg;
+    struct sctp_initmsg initmsg;
     createInitMsg(&initmsg, 10, 10, 0, 0);
 
     int s = setsockopt(sd, IPPROTO_SCTP, SCTP_INITMSG, &initmsg, sizeof(initmsg));
@@ -19,25 +19,30 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    struct sockaddr_in *peer;
+    struct sockaddr_in peer;
     createAddress("127.0.0.1", "4242", &peer, "sctp");
 
-    struct sctp_sndrcvinfo *sinfo;
+    struct sctp_sndrcvinfo sinfo;
 
     createSndRcvInfo(&sinfo, 1, 0, 0, 0, 0);
 
     char *message = "hello";
 
-    struct msghdr *msghdr;
+    struct msghdr msghdr;
     createMessageHdr(&msghdr,
                      &initmsg,
                      &sinfo,
                      (struct sockaddr*) &peer,
                      sizeof(peer),
                      (void *) message,
-                     1
+                     sizeof(message)
     );
 
-    sendmsg(sd, &msghdr, 0);
+    size_t n = sendmsg(sd, &msghdr, 0);
+    if(n < 0) {
+        perror("error sending message");
+        exit(EXIT_FAILURE);
+    }
 
+    exit(EXIT_SUCCESS);
 }

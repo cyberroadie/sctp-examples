@@ -68,6 +68,7 @@ void createSndRcvInfo(struct sctp_sndrcvinfo *sinfo,
                       uint16_t stream_no,
                       uint32_t timetolive,
                       uint32_t context) {
+
     bzero(sinfo, sizeof(*sinfo));
     sinfo->sinfo_ppid = ppid;
     sinfo->sinfo_flags = flags;
@@ -103,8 +104,9 @@ void createMessageHdr(struct msghdr *outmsghdr,
     // message
     struct iovec iov;
     outmsghdr->msg_iov = &iov;
+    outmsghdr->msg_iovlen = 1;
     iov.iov_base = (void *) msg;
-    iov.iov_len = 1;
+    iov.iov_len = len;
 
     outmsghdr->msg_control = cmsgbuf;
     outmsghdr->msg_controllen = sizeof(cmsgbuf);
