@@ -8,14 +8,20 @@ set(CMAKE_INCLUDE_SYSTEM_FLAG_C "-isystem ")
 set(CMAKE_C_FLAGS "-std=c99 -Wall")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
+# As described in https://tools.ietf.org/html/rfc6458#section-3 (One to many style)
 add_executable(simpleEchoSCTPClientSendmsgC client_sendmsg/simpleEchoSCTPClientSendmsg.c ${HEADER_FILES})
 target_link_libraries(simpleEchoSCTPClientSendmsgC myutillib)
+add_executable(simpleEchoSCTPServerRecvmsgC server_recvmsg/simpleEchoSCTPServerRecvmsg.c ${HEADER_FILES})
+target_link_libraries(simpleEchoSCTPServerRecvmsgC myutillib)
 
+# As described in https://tools.ietf.org/html/rfc6458#section-9.12
 add_executable(simpleEchoSCTPClientC client_sendv/simpleEchoSCTPClient.c)
+# As described in https://tools.ietf.org/html/rfc6458#section-9.13
 add_executable(simpleEchoSCTPServerC server_recvv/simpleEchoSCTPServer.c)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   target_link_libraries(simpleEchoSCTPClientSendmsgC /usr/lib/libsctp.dylib)
+  target_link_libraries(simpleEchoSCTPServerRecvmsgC /usr/lib/libsctp.dylib)
   target_link_libraries(simpleEchoSCTPServerC /usr/lib/libsctp.dylib)
   target_link_libraries(simpleEchoSCTPClientC /usr/lib/libsctp.dylib)
 endif(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")

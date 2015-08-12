@@ -7,6 +7,8 @@
 
 #include <netinet/sctp_uio.h>
 
+#define RECVBUFSIZE 100
+
 void createAddress(char *, char *, struct sockaddr_in *, char *);
 //void createAddress(char *hname, char *sname, struct sockaddr_in *sap, char *protocol);
 
@@ -25,12 +27,16 @@ void createSndRcvInfo(struct sctp_sndrcvinfo *sinfo ,
                       uint32_t timetolive,
                       uint32_t context);
 
-void createMessageHdr(struct msghdr *outmsghdr,
-                      struct sctp_initmsg *initmsg,
-                      struct sctp_sndrcvinfo *sinfo,
-                      struct sockaddr *to,
-                      socklen_t tolen,
-                      const void *msg,
-                      size_t len);
+void createMessageHdrSndRcv(struct msghdr *outmsghdr,
+                            struct sctp_initmsg *initmsg,
+                            struct sctp_sndrcvinfo *sinfo,
+                            struct sockaddr *to,
+                            socklen_t tolen,
+                            const void *msg,
+                            size_t len);
+
+void createMessageHdrRcv(struct msghdr *msghdr,
+                         void *message,
+                         size_t mlen);
 
 #endif //SCTP_EXAMPLES_UTIL_H

@@ -4,7 +4,11 @@
 #include <netdb.h>
 #include <stdlib.h>
 #include <netinet/sctp_uio.h>
-#include "util.h"
+#include <stdio.h>
+#include "../include/myutil.h"
+
+#define SCTP_CONTROL_VEC_SIZE_RCV  16384
+
 
 char *program_name;
 
@@ -84,13 +88,13 @@ void createSndRcvInfo(struct sctp_sndrcvinfo *sinfo,
 
 }
 
-void createMessageHdr(struct msghdr *outmsghdr,
-                      struct sctp_initmsg *initmsg,
-                      struct sctp_sndrcvinfo *sinfo,
-                      struct sockaddr *to,
-                      socklen_t tolen,
-                      const void *msg,
-                      size_t len) {
+void createMessageHdrSndRcv(struct msghdr *outmsghdr,
+                             struct sctp_initmsg *initmsg,
+                             struct sctp_sndrcvinfo *sinfo,
+                             struct sockaddr *to,
+                             socklen_t tolen,
+                             const void *msg,
+                             size_t len) {
 
 
 
@@ -119,5 +123,25 @@ void createMessageHdr(struct msghdr *outmsghdr,
 
     outmsghdr->msg_controllen = cmsg->cmsg_len;
     memcpy(CMSG_DATA(cmsg), sinfo, sizeof(struct sctp_sndrcvinfo));
+
+}
+
+void createMessageHdrRcv(struct msghdr *msg,
+                         void *message,
+                            size_t mlen) {
+
+    char cbuf[SCTP_CONTROL_VEC_SIZE_RCV];
+    bzero(msg, sizeof(msg));
+    bzero(cbuf, sizeof(cbuf));
+    msg->msg_control = &cbuf;
+    msg->msg_controllen = sizeof(cbuf);
+
+    struct iovec iov[1];
+    iov->iov_base = message;
+    iov->iov_len = RECVBUFSIZE;
+
+    // Message header
+    msg->msg_iov = iov;
+    msg->msg_iovlen = 1;
 
 }
