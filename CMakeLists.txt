@@ -10,6 +10,7 @@ add_library(myutillib src/myutil.c ${HEADER_FILES})
 add_subdirectory(multi_echo/c/tcp)
 add_subdirectory(multi_echo/c/sctp)
 add_subdirectory(multi_echo/go/tcp)
+add_subdirectory(multi_echo/go/sctp)
 
 add_subdirectory(simple/c/tcp)
 add_subdirectory(simple/c/sctp)
