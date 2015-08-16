@@ -39,7 +39,7 @@ int main() {
                            sizeof(message)
     );
 
-    size_t n = sendmsg(sd, &msghdr, 0);
+    ssize_t n = sendmsg(sd, &msghdr, 0);
     if(n < 0) {
         perror("error sending message");
         close(sd);
