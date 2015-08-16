@@ -3,4 +3,4 @@ project(scpt-examples Go)
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
-add_executable(simpleEchoSCTPClientGo ../../../multi_echo/go/sctp/client/simpleEchoSCTPClient.go)
+add_executable(simpleSCTPClientGo client/simpleSCTPClient.go)
