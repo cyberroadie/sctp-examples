@@ -9,15 +9,15 @@ set(CMAKE_C_FLAGS "-std=c99 -Wall")
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 # As described in https://tools.ietf.org/html/rfc6458#section-3 (One to many style)
-add_executable(simpleEchoSCTPClient_sendmsg client_sendmsg/simpleEchoSCTPClient_sendmsg.c ${HEADER_FILES})
+add_executable(simpleEchoSCTPClient_sendmsg client_sendmsg/simpleSCTPClient_sendmsg.c ${HEADER_FILES})
 target_link_libraries(simpleEchoSCTPClient_sendmsg myutillib)
-add_executable(simpleEchoSCTPServer_recvmsg server_recvmsg/simpleEchoSCTPServer_recvmsg.c ${HEADER_FILES})
+add_executable(simpleEchoSCTPServer_recvmsg server_recvmsg/simpleSCTPServer_recvmsg.c ${HEADER_FILES})
 target_link_libraries(simpleEchoSCTPServer_recvmsg myutillib)
 
 # As described in https://tools.ietf.org/html/rfc6458#section-9.12
-add_executable(simpleEchoSCTPClient_sctp_sendv client_sendv/simpleEchoSCTPClient_sctp_sendv.c)
+add_executable(simpleEchoSCTPClient_sctp_sendv client_sendv/simpleSCTPClient_sctp_sendv.c)
 # As described in https://tools.ietf.org/html/rfc6458#section-9.13
-add_executable(simpleEchoSCTPServer_sctp_revv server_recvv/simpleEchoSCTPServer_sctp_revv.c)
+add_executable(simpleEchoSCTPServer_sctp_revv server_recvv/simpleSCTPServer_sctp_revv.c)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
   target_link_libraries(simpleEchoSCTPClient_sendmsg /usr/lib/libsctp.dylib)

@@ -26,7 +26,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    struct sockaddr_in address;
+    struct sockaddr_in address; // TODO replace with helper function
     bzero((void*)&address, sizeof(address));
     address.sin_family = AF_INET;
     address.sin_port = htons(4242);
@@ -62,7 +62,7 @@ int main() {
     bzero(&rinfo, sizeof(struct sctp_rcvinfo));
     infolen = sizeof(rinfo);
 
-    struct sctp_initmsg initMsg;
+    struct sctp_initmsg initMsg; // TODO Replace with helper function
     bzero((void *)&initMsg, sizeof(initMsg));
     initMsg.sinit_num_ostreams = 100;
     initMsg.sinit_max_instreams = 0;
