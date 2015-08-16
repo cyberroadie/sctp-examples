@@ -19,7 +19,7 @@ type Settings struct {
 var (
 	settings = Settings{
 		Address:   flag.String("a", "localhost:4242", "address to sent messages to"),
-		Message:   flag.String("m", "recv", "message to send"),
+		Message:   flag.String("m", "haai", "message to send"),
 		Count:     flag.Int("c", 1, "number of messages"),
 		Instances: flag.Int("n", 1, "number of threads"),
 		Verbose:   flag.Bool("v", false, "extra logging"),

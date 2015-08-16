@@ -1,5 +1,3 @@
-#include "simpleEchoSCTPClient.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -87,23 +85,6 @@ int main() {
     if(n == -1) {
         perror("failure sending message");
         exit(EXIT_FAILURE);
-    }
-
-    int length = sctp_recvv(sd,
-                            echoiov,
-                            1,
-                            (struct sockaddr *) &from,
-                            fromlen,
-                            &rinfo,
-                            &infolen,
-                            &infotype,
-                            &flags);
-
-    if(length == -1) {
-        perror("failure receiving message");
-        exit(EXIT_FAILURE);
-    } else {
-        printf("received: %s\n", buf);
     }
 
     return EXIT_SUCCESS;

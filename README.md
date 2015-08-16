@@ -10,6 +10,11 @@ The reference implementation gets ported frequently to the latest version of Mac
 [install instructions](https://nplab.fh-muenster.de/wiki/pages/27J6w9D2/SCTP_on_Yosemite.html). 
 All programs should also work on this OS.
 
+Once everything is installed the driver kan be loaded with the follwoing command:
+
+   sudo kextload /System/Library/Extensions/SCTP.kext
+
+
 ### Linux
 No guaranteed support. [SCTP Linux driver developement](https://github.com/borkmann/lksctp-tools)
 

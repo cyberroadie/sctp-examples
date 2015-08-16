@@ -1,5 +1,3 @@
-#include "simpleEchoSCTPServer.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
@@ -96,33 +94,6 @@ int main() {
 
         buf[length] = '\0';
         printf("message received: %s\n", buf);
-
-        sinfo.snd_sid = rinfo.rcv_sid;
-        sinfo.snd_flags = SCTP_UNORDERED;
-        sinfo.snd_ppid = rinfo.rcv_ppid;
-        sinfo.snd_assoc_id = rinfo.rcv_assoc_id;
-
-        printf("sending message back: %s\n", buf);
-
-        char str[INET_ADDRSTRLEN];
-        inet_ntop(AF_INET, &client_addr.sin_addr, str, sizeof(str));
-        printf("On address %s\n", str);
-
-        int n = sctp_sendv(sd,
-                           iov,
-                           1,
-                           (struct sockaddr *) &client_addr,
-                           1,
-                           (void *) &sinfo,
-                           sizeof(struct sctp_sndinfo),
-                           SCTP_SENDV_SNDINFO,
-                           0);
-        if(n == -1) {
-            perror("error sending message");
-            exit(EXIT_FAILURE);
-        }
-
-        printf("message sent\n");
 
     }
 
